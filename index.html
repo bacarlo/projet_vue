@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+
+		<my-counter text="+1"></my-counter> <br>
+		<my-counter text="Adding One"></my-counter> <br>
+		<my-counter text="+1"></my-counter> <br>
+		<my-counter text="Adding One"></my-counter> <br>
+
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <!-- <script src="https://unpkg.com/vue@next"></script> -->
+	<script type="text/javascript">
+		
+		Vue.component('my-counter', {
+			props: ['text'],
+			template: '<div><input type="button" @click="counter+=1" :value="text"><span> counter {{ counter }} </span></div>',
+			data: function() {
+				return {
+					counter: 0
+				}
+			}
+		});
+
+		var app = new Vue({
+			el: '#app',
+		});
+
+	</script>
+</body>
+</html>
